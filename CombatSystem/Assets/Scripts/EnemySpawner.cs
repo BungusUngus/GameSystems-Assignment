@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public Transform PointA;
     public Transform PointB;
 
+
     public List<GameObject> enemies = new List<GameObject>();
     public GameObject enemyPrefab;
 
@@ -30,7 +31,8 @@ public class EnemySpawner : MonoBehaviour
         //starts spawning at zero until enemy amount is reached 
         for (int i = 0; i < EnemyAmount; i++)
         {
-            Vector3 pos = Vector3.Lerp(PointA.position, PointB.position, Random.Range(0f, 1f));
+            Vector3 pos = new Vector3(Random.Range(40, -40), 5, Random.Range(-40, 50));
+            //Vector3 pos = Vector3.Lerp(PointA.position, PointB.position, Random.Range(0f, 1f));
             var currentEnemy = Instantiate(enemyPrefab, pos, Quaternion.identity);
             enemies.Add(currentEnemy);
         }
