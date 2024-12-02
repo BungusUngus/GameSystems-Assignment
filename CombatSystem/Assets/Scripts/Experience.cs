@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Experience : MonoBehaviour
 {
-    
+
     [SerializeField] private float XP;
     //The players current maximum xp 
     public float MaxXP;
     //The players current level
     public int LevelCurrent;
+
+    [SerializeField] GameObject levelUpgrades;
 
     public void IncreaseXP(float amount)
     {
@@ -19,6 +21,7 @@ public class Experience : MonoBehaviour
         {
             LevelCurrent += 1;
             XP -= MaxXP;
+            levelUpgrades.SetActive(true);
         }
     }
 
